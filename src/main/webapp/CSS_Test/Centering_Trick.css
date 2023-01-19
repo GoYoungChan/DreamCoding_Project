@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.box {
+	background: lime;
+	width : 300px;
+	height : 150px;
+	margin: auto;
+}
+
+.box__inner {
+	background: blue;
+	width:50%;
+	height:50%;
+}
+
+/*Basic Code */
+
+.inner1 {
+	margin: auto;
+}
+
+.box2 {
+	text-align: center;
+}
+
+.inner3 {
+	transform : translate(50% , 50%);
+}
+
+.inner4 {
+	text-align: center;
+	line-height: 150px;
+}
