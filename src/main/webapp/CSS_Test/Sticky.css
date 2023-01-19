@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.container {
+	position: relative;
+	top:100px;
+	left:100px;
+	background : silver;
+}
+
+.box {
+	/* position: relative; */
+	margin-bottom: 20px;
+	background: gray;
+	width:100px;
+	height : 100px;
+}
+
+/* Basic Code  */
+
+/* 
+	Position - Sticky , Fixed Content 
+ */
+
+.box2 {
+	background: lime;
+	position: sticky;
+	left:0px;
+	top:0px;
+}
+
+.box3 {
+	background: blue;
+	position: fixed;
+	right:10px;
+	top:10px;
+}
+
+.box4 {
+	background: purple;
+}
