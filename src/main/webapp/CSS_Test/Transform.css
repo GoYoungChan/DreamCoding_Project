@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.box {
+	width : 100px;
+	height : 100px;
+	background-color: gray;
+	
+	margin: 20px 20px;
+}
+
+.box1 {
+	transform : translateX(100px);
+}
+
+.box2 {
+	transform : translate(20px,10px);
+}
+
+.box3 {
+	transform : scale(0.6);
+}
+
+.box4{
+	transform:rotate(45deg);
+}
+
+.box5{
+	transform : translate(100px,100px) scale(0.6) rotate(15deg);
+}
+
+/*
+transform을 이용하여 크기나 위치, 각도등의 모형 변경이 가능한 속성.
+ */
