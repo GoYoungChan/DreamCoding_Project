@@ -52,6 +52,14 @@ a {
 	text-decoration: none;
 	color: var(--color-white);
 }
+
+button {
+	background-color: transparent;
+	cursor : pointer;
+	border : none;
+	outline: none;
+}
+
 	/* Typography */
 	
 ul{
@@ -122,13 +130,8 @@ p {
 	background-color: var(--color-dark-pink);
 }
 
+/* Home */
 
-
-
-
-
-
-
-
-
-
+#home{
+	
+}
