@@ -36,6 +36,9 @@
 	/* Size */
 	--border-radius-size : 4px;
 	
+	/* Annimation */
+	--annimation-duration : 300ms;
+	
 }
 
 
@@ -148,3 +151,85 @@ p {
 .home__title,.home__description {
 	color : var(--color-white);
 }
+
+.home__contact {
+	color : var(--color-white);
+	font-size: var(--font-regular);
+	font-weight: var(--weight-bold);
+	margin: 2px;
+	padding: 8px 12px;
+	border : 2px solid var(--color-white);
+	border-radius: var(--size-border-radius);
+}
+
+/* About Me */
+
+.section {
+	padding: 50px;
+	text-align: center;
+	max-width: 1200px;
+	margin: auto;
+}
+
+/* About Major  */
+.about__stacks {
+	display: flex;
+	justify-content: space-between;
+	margin: 80px 0;
+}
+
+.stack__icon {
+	width : 170px;
+	height: 170px;
+	margin : 0 auto;
+	line-height : 170px;
+	font-size: 70px;
+	
+	border: 1px solid var(--color-blue);
+	border-radius: 50%;
+	margin-bottom: 10px;
+	color : var(--color-blue);
+}
+
+.stack__icon:hover i{
+	color : var(--color-yellow);
+	transform : rotate(-30deg) scale(1.2);
+	transition : all var(--annimation-duration) ease;
+}
+
+.stack__title, .stack__description {
+	color : var(--color-dark-gray);
+}
+
+.stack__description {
+	font-size: var(--font-small);
+}
+
+.job {
+	margin: auto 40%;
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+.job__description{
+	margin: 0 10px;
+	text-align: left;
+}
+
+.job__name, .job__period {
+	color : var(--color-light-grey);
+	}
+
+.job__description{
+	margin: 0 16px;
+}
+
+.job__name {
+	font-size: var(--font-small);
+}
+
+.job__period {
+	font-size: var(--font-micro);
+}
+	
