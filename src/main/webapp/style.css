@@ -98,6 +98,19 @@ p {
 	margin : 4px 0px;
 }
 
+/* Section commmon */
+
+.section {
+	padding: 50px;
+	text-align: center;
+	margin: auto;
+}
+
+.section__container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 /* Naver */
 
 #navbar{
@@ -164,14 +177,6 @@ p {
 
 /* About Me */
 
-.section {
-	padding: 50px;
-	text-align: center;
-	max-width: 1200px;
-	margin: auto;
-}
-
-/* About Major  */
 .about__stacks {
 	display: flex;
 	justify-content: space-between;
@@ -232,4 +237,33 @@ p {
 .job__period {
 	font-size: var(--font-micro);
 }
-	
+
+/* Skills */
+
+#skill {
+	background: var(--color-yellow);
+}
+
+.skillset {
+	display: flex;
+	justify-content: space-around;
+	background: var(--color-light-grey);
+}
+
+.skillset__left{
+	flex-basis: 60%;
+	background: var(--color-dark-grey);
+}
+
+.skillset__right {
+	flex-basis: 40%;
+}
+
+.tools{
+	background: var(--color-grey);
+}
+
+
+
+
+
