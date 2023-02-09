@@ -115,22 +115,12 @@ section {
 
 #navbar{
 	position : fixed;
-	width : 100%;
-	background-color: transparent;
-	
 	display: flex;
 	justify-content: space-between;
-	
+	background-color: var(--color-pink);
 	align-items: center;
 	color: var(--color-white);
 	padding: 16px;
-	
-	transition : all var(--annimation-duration) ease-in;
-}
-
-#navbar.navbar__dark{
-	background-color: var(--color-pink);
-	padding: 8px;
 }
 
 .navbar__menu {
@@ -175,7 +165,6 @@ section {
 #home {
 	background: url(image/Projects/home_background.png) center/cover no-repeat;
 	padding: 40px;
-	padding-top: 100px;
 	text-align: center;
 }
 
