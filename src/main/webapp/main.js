@@ -27,29 +27,43 @@ document.addEventListener('scroll',() =>{
 // Handle scrolling when tapping on the navbar menu
 
 const navbarMenu = document.querySelector('.navbar__menu');
+
 navbarMenu.addEventListener('click',(event)=>{
-	console.log(event.target.dataset.link);
 	
-	const target = event.target;
-	const link = target.dataset.link;
+	const target = event.target; /* 이벤트 실행 되는 요소*/
+	const link = target.dataset.link; /* 요소의 data-link 의 값*/
 	
 	if(link == null){
 		return;
 	}
 	
-	//const ScrollTo = document.querySelector(link).offsetTop;
-	const ScrollTo = document.querySelector(link);
-	ScrollTo.scrollIntoView({behavior :'smooth'});
+	//1
 	
+	//const ScrollTo = document.querySelector(link).offsetTop;
+	scrollToView(link);
+	
+	// 2 
+	
+	const item = document.querySelector('.active');
+	item.classList.remove('active');
+	
+	console.log(link);
+	const additem = document.querySelector(link);
+	target.classList.add('active');
 })
 
+const contactMe_btn = document.querySelector('.home__contact');
 
+contactMe_btn.addEventListener('click',()=>{
+	scrollToView(link);
+})
 
+function scrollToView(selector) {
+	const ScrollTo = document.querySelector(selector);
+	ScrollTo.scrollIntoView({behavior : 'smooth'});
+}
 
-
-
-
- /*
+ /* ScrollToId My Code 02-10
 const home = document.querySelector('#home');
 const homeHeight = home.getBoundingClientRect().height;
 
