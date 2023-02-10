@@ -89,8 +89,23 @@ document.addEventListener('scroll',()=>{
 	
 })
 
+/* Go Top Scroll after TopScroll Button Click  */
 
+const scrollTop = document.querySelector('.ScrollTop');
+document.addEventListener('scroll',()=>{
+	const homeHeight = home.getBoundingClientRect().height;
+	
+	if(window.scrollY > homeHeight){
+		scrollTop.style.opacity= 1;
+	}else {
+		scrollTop.style.opacity= 0;
+	}
+})
 
+document.addEventListener('click',()=>{
+	
+	window.scrollTo({top : 0 , behavior : 'smooth'});
+})
 
 
 

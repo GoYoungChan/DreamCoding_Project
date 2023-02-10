@@ -111,6 +111,28 @@ section {
 	margin: 0 auto;
 }
 
+/* Scroll Top Button */
+.ScrollTop{
+	width : 50px;
+	height : 50px;
+	position: fixed;
+	background-color: var(--color-pink);
+	border-radius: 100%;
+	color : var(--color-white);
+	right : 20px;
+	bottom: 20px;
+	
+	line-height: 50px;
+	text-align: center;
+	opacity: 0;
+	transition : all var(--annimation-duration) ease;
+	cursor: pointer;
+}
+
+ .ScrollTop i {
+ 	transform : scale(1.5);
+} 
+
 /* Naver */
 
 #navbar{
@@ -166,10 +188,6 @@ section {
 	color : var(--color-white);
 	display: none;
 }
-
-
-
-
 
 /* Home */
 
