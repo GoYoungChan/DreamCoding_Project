@@ -54,7 +54,8 @@ navbarMenu.addEventListener('click',(event)=>{
 
 const contactMe_btn = document.querySelector('.home__contact');
 
-contactMe_btn.addEventListener('click',()=>{
+contactMe_btn.addEventListener('click',(event)=>{
+	const link = event.target.dataset.link;
 	scrollToView(link);
 })
 
@@ -62,6 +63,47 @@ function scrollToView(selector) {
 	const ScrollTo = document.querySelector(selector);
 	ScrollTo.scrollIntoView({behavior : 'smooth'});
 }
+
+
+/* Home Opacity Fade Out*/
+
+
+
+
+
+
+const home = document.querySelector('#home');
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener('scroll',()=>{
+	const scrollHeight = window.scrollY;
+	console.log(1 - scrollHeight / homeHeight);
+	const opacity = 1 - scrollHeight / homeHeight;
+	
+	if(opacity <0){
+		return;
+	}
+	
+	const home = document.querySelector('.home__container');
+	home.style.opacity = opacity;
+	
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  /* ScrollToId My Code 02-10
 const home = document.querySelector('#home');
