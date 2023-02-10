@@ -61,29 +61,23 @@ function scrollToView(selector) {
 	ScrollTo.scrollIntoView({behavior : 'smooth'});
 }
 
-
 /* Home Opacity Fade Out*/
-
-
-
-
-
 
 const home = document.querySelector('#home');
 const homeHeight = home.getBoundingClientRect().height;
 
 document.addEventListener('scroll',()=>{
-	
+
 	const scrollHeight = window.scrollY;
 	const opacity = 1 - scrollHeight / homeHeight;
-	
+
 	if(opacity <0){
 		return;
 	}
-	
+
 	const home = document.querySelector('.home__container');
 	home.style.opacity = opacity;
-	
+
 })
 
 /* Go Top Scroll after TopScroll Button Click  */
@@ -105,14 +99,26 @@ scrollTop.addEventListener('click',()=>{
 })
 
 
+/* Small Navbar Create and Down (Navbar Icon onClick) */
 
 
 
 
 
+/* My Work Category Change Logic */
 
+const workCategory = document.querySelector('.work__categories');
 
-
+workCategory.addEventListener('click',(event) => {
+	const target = event.target;
+	const link = target.dataset.link;
+	
+	const removeClass = document.querySelector('.active');
+	removeClass.classList.remove('active');
+	
+	const addItem = document.querySelector(link);
+	target.classList.add('active');
+})
 
 
 

@@ -192,6 +192,7 @@ section {
 /* Home */
 
 #home {
+	
 	background: url(image/Projects/home_background.png) center/cover no-repeat;
 	padding: 40px;
 	padding-top: 100px;
@@ -525,6 +526,7 @@ section {
 	.navbar__toggle_btn {
 		display: block;
 	}
+	
 	#navbar {
 		flex-direction: column;
 		align-items: flex-start;
