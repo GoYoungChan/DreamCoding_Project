@@ -36,18 +36,15 @@ navbarMenu.addEventListener('click',(event)=>{
 	if(link == null){
 		return;
 	}
-	
 	//1
-	
-	//const ScrollTo = document.querySelector(link).offsetTop;
+
 	scrollToView(link);
-	
+
 	// 2 
 	
 	const item = document.querySelector('.active');
 	item.classList.remove('active');
 	
-	console.log(link);
 	const additem = document.querySelector(link);
 	target.classList.add('active');
 })
@@ -76,8 +73,8 @@ const home = document.querySelector('#home');
 const homeHeight = home.getBoundingClientRect().height;
 
 document.addEventListener('scroll',()=>{
+	
 	const scrollHeight = window.scrollY;
-	console.log(1 - scrollHeight / homeHeight);
 	const opacity = 1 - scrollHeight / homeHeight;
 	
 	if(opacity <0){
@@ -92,6 +89,7 @@ document.addEventListener('scroll',()=>{
 /* Go Top Scroll after TopScroll Button Click  */
 
 const scrollTop = document.querySelector('.ScrollTop');
+
 document.addEventListener('scroll',()=>{
 	const homeHeight = home.getBoundingClientRect().height;
 	
@@ -102,8 +100,7 @@ document.addEventListener('scroll',()=>{
 	}
 })
 
-document.addEventListener('click',()=>{
-	
+scrollTop.addEventListener('click',()=>{
 	window.scrollTo({top : 0 , behavior : 'smooth'});
 })
 
