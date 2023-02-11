@@ -103,28 +103,53 @@ scrollTop.addEventListener('click',()=>{
 
 /* Small Navbar Create and Down (Navbar Icon onClick) */
 
-
-
-
-
-/* My Work Category Change Logic */
-
-const workCategory = document.querySelector('.work__categories');
-
-workCategory.addEventListener('click',(event) => {
-	const target = event.target;
-	const link = target.dataset.link;
-	
-	const removeClass = document.querySelector('.active');
-	removeClass.classList.remove('active');
-	
-	const addItem = document.querySelector(link);
-	target.classList.add('active');
-})
-
 const navbarToggleBtn = document.querySelector('.navbar__toggle_btn');
 navbarToggleBtn.addEventListener('click',()=>{
 	navbarMenu.classList.toggle('close');
+})
+
+
+
+const workCategory = document.querySelector('.work__categories');
+const projectCategory = document.querySelector('.work__projects');
+const projectAll = document.querySelectorAll('.projects');
+
+/* My Work Category Change Logic */
+
+workCategory.addEventListener('click',(event) => {
+	const target = event.target;
+	const filter = target.dataset.filter || target.parentNode.dataset.filter;
+	
+	if(filter ==null){
+		return;
+	}
+	projectCategory.classList.add('anim-out');
+	setTimeout(()=>{
+		projectAll.forEach((project) =>{
+		console.log(project.dataset.type);
+		if(filter == '*' || filter == project.dataset.type){
+			project.classList.remove('invisible');
+		} else {
+			project.classList.add('invisible');
+		}
+	});
+		projectCategory.classList.remove('anim-out')},300);
+	
+	// Parent Div -> Event Opened - > Chiled Div's data-type value Read!! 
+	
+	
+	/*console.log(filter);*/
+	/* My Work Category Change Logic */
+	const removeClass = document.querySelector('.active');
+	
+	removeClass.classList.remove('active');
+	target.classList.add('active');
+	
+	/* My Workd Category Filter Logic*/
+	
+	
+	
+	
 })
 
 

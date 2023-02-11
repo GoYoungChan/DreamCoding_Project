@@ -219,14 +219,14 @@
 			<h3>Projects</h3>
 			
 			<div class="work__categories">
-				<button class="category__btn active">All <span class="category__count">6</span></button>
-				<button class="category__btn">Front-end <span class="category__count">3</span></button>
-				<button class="category__btn">Back-end <span class="category__count">3</span></button>
+				<button class="category__btn active" data-filter = "*">All <span class="category__count">6</span></button>
+				<button class="category__btn" data-filter = "front-end">Front-end <span class="category__count">3</span></button>
+				<button class="category__btn" data-filter = "back-end">Back-end <span class="category__count">3</span></button>
 			</div>
 			
 			<div class="work__projects">
-				<div class="projects">
-					 <a href="" target="blank" class="project" >
+				<div class="projects" data-type = "front-end">
+					 <a href="" target="blank" class="project" data-type = "front-end">
 					 <img src="image/Projects/Remember.png" alt="Youtube" class="project__img"/>
 						 <div class="project__description">
 						 	<h3>Youtube Site</h3>
@@ -235,8 +235,8 @@
 					 </a><!-- target -> 새로운 창을 생성하여 해당 페이지 이동. -->
 				 </div>
 				 
-				 <div class="projects">
-					 <a href="" target="blank" class="project">
+				 <div class="projects" data-type = "back-end">
+					 <a href="" target="blank" class="project" data-type = "back-end">
 						 <img src="image/Projects/Remember.png" alt="Youtube" class="project__img"/>
 						 <div class="project__description">
 						 	<h3>Youtube Site</h3>
