@@ -37,6 +37,8 @@ navbarMenu.addEventListener('click',(event)=>{
 		return;
 	}
 	//1
+	
+	navbarMenu.classList.add('close');
 
 	scrollToView(link);
 
@@ -120,7 +122,10 @@ workCategory.addEventListener('click',(event) => {
 	target.classList.add('active');
 })
 
-
+const navbarToggleBtn = document.querySelector('.navbar__toggle_btn');
+navbarToggleBtn.addEventListener('click',()=>{
+	navbarMenu.classList.toggle('close');
+})
 
 
  /* ScrollToId My Code 02-10
