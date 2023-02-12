@@ -46,19 +46,27 @@
 
     <script>
     	const boxes = document.querySelectorAll('.box');
-    
-    	const observer = new IntersectionObserver((entries, observer) => {
-    		entries.forEach((entry) =>{
+    	
+    	const callback = (entries,observer) =>{
+    		entries.forEach(entry =>{
     			if(entry.isIntersecting){
     				entry.target.classList.add('active');
-    				console.log('Intersecting');
-    			}else {
-    				console.error('Outersecting');
+    			}else{
     				entry.target.classList.remove('active');
     			}
     		})
-    		
-    	});
+    	}
+    	
+    	const options = {
+    			root : null, // viewport
+    			rootMargin : '0px',
+    			threshold : '0.3'
+    	};
+    	
+    	const observer = new IntersectionObserver(callback,options);
+    	
+    	
+    	
     	boxes.forEach(box => { observer.observe(box);})
     </script>
   </body>
