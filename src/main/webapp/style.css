@@ -106,13 +106,18 @@ section {
 	margin: auto;
 }
 
+.section {
+	padding : 16px;
+	padding-top: 40px;
+}
+
 .section__container {
 	max-width: 1200px;
 	margin: 0 auto;
 }
 
 /* Scroll Top Button */
-.ScrollTop{
+.ScrollTop {
 	width : 50px;
 	height : 50px;
 	position: fixed;
@@ -131,7 +136,7 @@ section {
 
  .ScrollTop i {
  	transform : scale(1.5);
-} 
+}
 
 /* Naver */
 
@@ -222,14 +227,18 @@ section {
 	margin: 2px;
 	padding: 8px 12px;
 	border : 2px solid var(--color-white);
-	border-radius: var(--size-border-radius);
+	border-radius: var(--border-radius-size);
+}
+
+.home__contact:hover {
+	background-color: var(--color-orange);
 }
 
 /* About Me */
 
 .about__stacks {
 	display: flex;
-	/* justify-content: space-between; */
+	justify-content: space-between;
 	margin: 80px 0;
 }
 
@@ -356,6 +365,7 @@ section {
 	border-radius: var(--border-radius-size);
 	font-size: var(--font-regular);
 	padding: 8px 48px;
+	position: relative;
 }
 
 .category__btn.active, .category__btn:hover {
@@ -380,9 +390,9 @@ section {
 	
 	line-height: 24px;
 	
-	position: relative;
+	position: absolute;
 	top: -20px;
-	left: 4px;
+	right: 16px;
 	
 	opacity: 0; /* 불투명 정도 */
 	transition : all var(--annimation-duration) ease-in;
@@ -542,8 +552,11 @@ section {
 
 /* For below 768px screen width */
 @media screen and (max-width : 768px) {
+	
 	.navbar__toggle_btn {
 		display: block;
+		top: 22px;
+		right : 16px;
 	}
 	
 	#navbar {
@@ -566,14 +579,21 @@ section {
 	
 	.about__stacks{
 		flex-direction: column;
+		margin-top: 30px;
+		margin-bottom: 0px;
 	}
 	
 	.stack {
 		margin-bottom: 32px;
 		}
-		
+	
 	.skillset {
 		flex-direction: column;
+	}
+	
+	.category__btn{
+	/* padding : 8px; */
+	margin: 4px 0;
 	}
 	
 	.projects {
@@ -581,7 +601,51 @@ section {
 	}
 	
 	.testimonial__image{
-		width : 80px;
-		height: 80px;
+		position : relative;
+		width : 120px;
+		height: 120px;
 	}
+	
+	.testimonial{
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.testimonial__speech-bubble{
+		order : 1;
+	}
+	
+	.testimonial__image:nth-child(even),
+	.testimonial__image:nth-child(odd) {
+		margin: 0px;
+		margin-bottom: 8px;
+	}
+	
+	.ScrollTop{
+		width : 50px;
+		height: 50px;
+		line-height : 50px;
+		
+		right : 16px;
+		bottom: 16px;
+	
+	}
+	
+	.ScrollTop i {
+		transform : scale(1.2);
+	}
+
+	/* 
+	.testimonial:nth-child(even) {
+		flex-direction: column-reverse;
+	}
+	
+	.testimonial:nth-child(odd) {
+		flex-direction: column;
+	}
+	
+	.testimonial__speech-bubble {
+		padding-top: 10px;
+	}
+	 */
 }
