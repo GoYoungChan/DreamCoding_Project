@@ -144,14 +144,68 @@ workCategory.addEventListener('click',(event) => {
 	
 	removeClass.classList.remove('active');
 	target.classList.add('active');
-	
-	/* My Workd Category Filter Logic*/
-	
-	
-	
-	
 })
 
+/* Scroll forward this Section -> Navbar Border Activate Logic */
+const sectionIds = [
+	'#home',
+	'#about',
+	'#skills',
+	'#work',
+	'#testimonials',
+	'#contact'
+]
+
+const sections =sectionIds.map(id => 
+	document.querySelector(id));
+
+const navbarsections = sectionIds.map(id => 
+	document.querySelector(`[data-link="${id}"]`)
+);
+
+console.log(navbarsections);
+
+
+/*
+document.addEventListener('scroll',() =>{
+	const test =document.getElementsByClassName('navbar__menu__item');
+	console.log(test);
+	// Navbar Instance Added.
+	const NavbarItem = document.querySelectorAll('.navbar__menu__item');
+	//console.log(NavbarItem);
+	
+	const allHeight = document.querySelectorAll('section');
+	//console.log(allHeight); //7 Section Added.
+	
+	const Scroll = window.scrollY;
+	//console.log(Scroll); // Current Scroll Value Added.
+	
+	const CurrentActivate = document.querySelector('.active');
+	//console.log(CurrentActivate);
+	//console.log(CurrentActivate.getBoundingClientRect().height);
+	
+	// Scroll 수치가 해당 Section의 Height 과 같거나 클 때
+	// 해당 Navbar의 active Class 추가 및 기존 Navbar의 Active 삭제.
+	// 그럴 때 필요한 변수. Scroll 값 , 해당 Section의 Height 값 , 
+	// Section의 객체와 Navbar의 Data-link의 값 ( 연동 )
+	allHeight.forEach((section)=>{
+		//console.log(section.getBoundingClientRect().height);
+		//console.log(Scroll);
+		if(Scroll == 100){
+			console.log(123);
+		}
+	})
+	
+})*/
+/*
+function NavbarActivate(sectionAll){
+	const allHeight = document.querySelectorAll('section');
+	
+	sectionAll.forEach((section)=>{
+		
+	})
+}
+*/
 
  /* ScrollToId My Code 02-10
 const home = document.querySelector('#home');
