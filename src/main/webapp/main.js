@@ -48,13 +48,8 @@ const contactMe_btn = document.querySelector('.home__contact');
 
 contactMe_btn.addEventListener('click',(event)=>{
 	const link = event.target.dataset.link;
-	scrollToView(link);
+	scrollToView(link); // #contace
 })
-
-function scrollToView(selector) {
-	const ScrollTo = document.querySelector(selector);
-	ScrollTo.scrollIntoView({behavior : 'smooth'});
-}
 
 /* Home Opacity Fade Out*/
 
@@ -90,7 +85,7 @@ document.addEventListener('scroll',()=>{
 })
 
 scrollTop.addEventListener('click',()=>{
-	window.scrollTo({top : 0 , behavior : 'smooth'});
+	scrollToView('#home');
 })
 
 
@@ -106,20 +101,25 @@ navbarToggleBtn.addEventListener('click',()=>{
 const workCategory = document.querySelector('.work__categories');
 const projectCategory = document.querySelector('.work__projects');
 const projectAll = document.querySelectorAll('.projects');
+const workCategoryBtn = document.querySelectorAll('.category__btn');
 
 /* My Work Category Change Logic */
 
+
+
 workCategory.addEventListener('click',(event) => {
+	
 	const target = event.target;
 	const filter = target.dataset.filter || target.parentNode.dataset.filter;
-	
+
 	if(filter ==null){
 		return;
 	}
+	
 	projectCategory.classList.add('anim-out');
 	setTimeout(()=>{
 		projectAll.forEach((project) =>{
-		console.log(project.dataset.type);
+
 		if(filter == '*' || filter == project.dataset.type){
 			project.classList.remove('invisible');
 		} else {
@@ -128,15 +128,15 @@ workCategory.addEventListener('click',(event) => {
 	});
 		projectCategory.classList.remove('anim-out')},300);
 	
+	let removeClass = workCategory.querySelector('.active');
+	removeClass.classList.remove('active');
+	removeClass = target.classList.add('active');
+	
 	// Parent Div -> Event Opened - > Chiled Div's data-type value Read!! 
 	
 	
 	/*console.log(filter);*/
 	/* My Work Category Change Logic */
-	const removeClass = document.querySelector('.active');
-	
-	removeClass.classList.remove('active');
-	target.classList.add('active');
 })
 
 /* Scroll forward this Section -> Navbar Border Activate Logic */
@@ -155,7 +155,7 @@ const sectionIds =
 '#contact'];
 
 const sections = sectionIds.map(id =>document.querySelector(id)); // 각 section 별로 요소들을 불러옴.
-console.log(sections);
+//console.log(sections);
 
 const navbarItems= sectionIds.map(id => document.querySelector(`[data-link = "${id}"]`));
 //console.log(navbarItems);
@@ -170,12 +170,7 @@ const options = {
 }
 
 let selectedNavIndex = 0;
-let selectedNavItem = navbarItems[0];
-function SelectedNavbarItem(selected){
-			selectedNavItem.classList.remove('active');
-			selectedNavItem = selected;
-			selectedNavItem.classList.add('active');
-}
+let selectNavItem = navbarItems[selectedNavIndex];
 
 const callback = (entries,observer) =>{
 	entries.forEach(entry =>{
@@ -205,24 +200,24 @@ window.addEventListener('wheel',()=>{
 	SelectedNavbarItem(navbarItems[selectedNavIndex]);
 })
 
+// Automatically Scrolled Method
 
+
+function scrollToView(selector) {
+	const ScrollTo = document.querySelector(selector);
+	ScrollTo.scrollIntoView({behavior : 'smooth'});
+	//console.log(navbarItems[sectionIds.indexOf(selector)]);
+	SelectedNavbarItem(navbarItems[sectionIds.indexOf(selector)]);
+}
+
+function SelectedNavbarItem(selected){
+			selectNavItem.classList.remove('active');
+			selectNavItem = selected;
+			selectNavItem.classList.add('active');
+}
 
 // observer.observe(navbarItems); // 변수에 요소들이 담겨진 변수를 전달.
 
 //const observer = new IntersectionObserve(callback,options);
 //sections.forEach(section => observer.observe(section))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
