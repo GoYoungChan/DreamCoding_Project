@@ -36,19 +36,12 @@ navbarMenu.addEventListener('click',(event)=>{
 	if(link == null){
 		return;
 	}
-	//1
+	
 	
 	navbarMenu.classList.add('close');
-
 	scrollToView(link);
-
-	// 2 
+	SelectedNavbarItem(target);
 	
-	const item = document.querySelector('.active');
-	item.classList.remove('active');
-	
-	const additem = document.querySelector(link);
-	target.classList.add('active');
 })
 
 const contactMe_btn = document.querySelector('.home__contact');
@@ -147,99 +140,85 @@ workCategory.addEventListener('click',(event) => {
 })
 
 /* Scroll forward this Section -> Navbar Border Activate Logic */
-const sectionIds = [
-	'#home',
-	'#about',
-	'#skills',
-	'#work',
-	'#testimonials',
-	'#contact'
-]
 
-const sections =sectionIds.map(id => 
-	document.querySelector(id));
+// 1. 모든 섹션 요소를 가지고 온다.
+// 2. Intersection을 이용하여 모든 섹션들을 관찰.
+// 3. 보여지는 섹션에 해당되는 메뉴를 활성화.
 
-const navbarsections = sectionIds.map(id => 
-	document.querySelector(`[data-link="${id}"]`)
-);
+// 1
+const sectionIds = 
+['#home',
+'#about',
+'#skills',
+'#work',
+'#testimonials',
+'#contact'];
 
-console.log(navbarsections);
+const sections = sectionIds.map(id =>document.querySelector(id)); // 각 section 별로 요소들을 불러옴.
+console.log(sections);
+
+const navbarItems= sectionIds.map(id => document.querySelector(`[data-link = "${id}"]`));
+//console.log(navbarItems);
 
 
-/*
-document.addEventListener('scroll',() =>{
-	const test =document.getElementsByClassName('navbar__menu__item');
-	console.log(test);
-	// Navbar Instance Added.
-	const NavbarItem = document.querySelectorAll('.navbar__menu__item');
-	//console.log(NavbarItem);
-	
-	const allHeight = document.querySelectorAll('section');
-	//console.log(allHeight); //7 Section Added.
-	
-	const Scroll = window.scrollY;
-	//console.log(Scroll); // Current Scroll Value Added.
-	
-	const CurrentActivate = document.querySelector('.active');
-	//console.log(CurrentActivate);
-	//console.log(CurrentActivate.getBoundingClientRect().height);
-	
-	// Scroll 수치가 해당 Section의 Height 과 같거나 클 때
-	// 해당 Navbar의 active Class 추가 및 기존 Navbar의 Active 삭제.
-	// 그럴 때 필요한 변수. Scroll 값 , 해당 Section의 Height 값 , 
-	// Section의 객체와 Navbar의 Data-link의 값 ( 연동 )
-	allHeight.forEach((section)=>{
-		//console.log(section.getBoundingClientRect().height);
-		//console.log(Scroll);
-		if(Scroll == 100){
-			console.log(123);
-		}
-	})
-	
-})*/
-/*
-function NavbarActivate(sectionAll){
-	const allHeight = document.querySelectorAll('section');
-	
-	sectionAll.forEach((section)=>{
-		
-	})
+// 2
+
+const options = {
+	root : null,
+	rootMargin : '0px',
+	threshold : 0.3
 }
-*/
 
- /* ScrollToId My Code 02-10
-const home = document.querySelector('#home');
-const homeHeight = home.getBoundingClientRect().height;
+let selectedNavIndex = 0;
+let selectedNavItem = navbarItems[0];
+function SelectedNavbarItem(selected){
+			selectedNavItem.classList.remove('active');
+			selectedNavItem = selected;
+			selectedNavItem.classList.add('active');
+}
 
-const about = document.querySelector('#about');
-const aboutHeight = home.getBoundingClientRect().height;
-
-const skill = document.querySelector('#skill');
-const skillHeight = home.getBoundingClientRect().height;
-
-const work = document.querySelector('#work');
-const workHeight = home.getBoundingClientRect().height;
-
-const contact = document.querySelector('#contact');
-const contactHeight = home.getBoundingClientRect().height;
-
-const navbarItem = document.querySelector('.navbar__menu__item');
-navbarItem.addEventListener('click',() =>{
-	
-	let itemName = navbarItem.innerHTML.toLowerCase();
-	
-	
-	if(itemName == home.id){
+const callback = (entries,observer) =>{
+	entries.forEach(entry =>{
 		
-		console.log(homeHeight);
-		window.scrollTo(aboutHeight,1);
-		
-	} else if (itemName == about.id){
-		console.log(aboutHeight);
-		window.scrollTo(aboutHeight,1);
+		if(!entry.isIntersecting && entry.intersectionRatio > 0){
+			const index = sectionIds.indexOf(`#${entry.target.id}`); //entry.target.id : 해당 섹션 요소의 Id를 리턴
+			
+			if(entry.boundingClientRect.y <0){
+				selectedNavIndex = index + 1;
+			}else {
+				selectedNavIndex = index - 1;
+			}
+		}
+	});
+};
+
+const observer = new IntersectionObserver(callback,options);
+
+sections.forEach(section => observer.observe(section));
+
+window.addEventListener('wheel',()=>{
+	if(window.scrollY === 0){
+		selectedNavIndex = 0;
+	}else if(window.scrollY + window.innerHeight === document.body.clientHeight){
+		selectedNavIndex = navbarItems.length - 1;
 	}
+	SelectedNavbarItem(navbarItems[selectedNavIndex]);
 })
-*/
+
+
+
+// observer.observe(navbarItems); // 변수에 요소들이 담겨진 변수를 전달.
+
+//const observer = new IntersectionObserve(callback,options);
+//sections.forEach(section => observer.observe(section))
+
+
+
+
+
+
+
+
 
 
 
