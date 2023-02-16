@@ -134,9 +134,6 @@ workCategory.addEventListener('click',(event) => {
 	
 	// Parent Div -> Event Opened - > Chiled Div's data-type value Read!! 
 	
-	
-	/*console.log(filter);*/
-	/* My Work Category Change Logic */
 })
 
 /* Scroll forward this Section -> Navbar Border Activate Logic */
