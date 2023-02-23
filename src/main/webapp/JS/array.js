@@ -69,10 +69,23 @@ console.log(SortNumber);
 
 
 
+	function Test(){
+		this.d = "d 테스트";
+		this.e = `${this.d} 테스트`;
+	}
+	
+	Test.prototype.f = 'f 테스트';
+	let abcd = new Test();
+	
+	//Test.prototype.f = 'f 테스트';
+	
+	console.log(abcd.e);
+	console.log(abcd.f);
 
-
-
-
+	Object
+	function add(object){
+		
+	}
 
 
 
